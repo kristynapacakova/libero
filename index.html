@@ -53,39 +53,60 @@ nav{
 .nav-links .cta{color:var(--text)}
 .nav-links .cta:hover{color:var(--red)}
 
-/* ── HERO ── */
-.hero{margin-top:62px}
-.hero-header{
-  padding:72px 52px 60px;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:40px;align-items:end;
-  border-bottom:1px solid var(--line);
+
+/* ── HERO NOVÝ ── */
+.hero{margin-top:62px;position:relative;height:calc(100vh - 62px);min-height:560px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(175deg,#d4cdc2 0%,#b8ae9e 25%,#9e9282 55%,#857568 80%,#6c5e52 100%)}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,11,8,.62) 0%,rgba(15,11,8,.18) 50%,rgba(15,11,8,.08) 100%)}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 52px 64px;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:flex-end;gap:48px;
 }
-.eyebrow{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-.hero-left h1{
+.hero-content .eyebrow{
+  font-size:10px;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-bottom:20px
+}
+.hero-content h1{
   font-family:var(--serif);
-  font-size:clamp(48px,6vw,88px);
-  font-weight:300;line-height:.98;letter-spacing:.01em;color:var(--text)
+  font-size:clamp(48px,6.5vw,92px);
+  font-weight:300;line-height:.96;letter-spacing:.01em;
+  color:#fff
 }
-/* červený akcent – jedno slovo v hero */
-.hero-left h1 .accent{color:var(--red)}
-.hero-right p{font-size:15px;line-height:1.85;color:var(--mid);max-width:380px;margin-bottom:36px}
-.btn-link{
+.hero-right-col{
+  display:flex;flex-direction:column;align-items:flex-end;
+  gap:28px;padding-bottom:6px;max-width:320px
+}
+.hero-right-col p{
+  font-size:14px;line-height:1.8;
+  color:rgba(255,255,255,.6);
+  text-align:right;font-weight:300
+}
+.hero-scroll-hint{
+  display:flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.35)
+}
+.hero-scroll-hint::after{content:"";width:32px;height:1px;background:rgba(255,255,255,.25)}
+
+/* btn-white pro hero */
+.btn-white{
   display:inline-flex;align-items:center;gap:10px;
   font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--text);text-decoration:none;
-  border-bottom:1px solid var(--sand);padding-bottom:4px;
-  transition:color .2s,border-color .2s
+  color:#fff;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:4px;
+  transition:border-color .2s
 }
-.btn-link:hover{color:var(--red);border-color:var(--red)}
+.btn-white:hover{border-color:rgba(255,255,255,.9)}
 
-.hero-photo{
-  width:100%;aspect-ratio:16/7;min-height:300px;
-  background:linear-gradient(175deg,#d4cdc2 0%,#b8ae9e 25%,#9e9282 55%,#857568 80%,#6c5e52 100%);
-  position:relative;overflow:hidden
+@media(max-width:920px){
+  .hero-content{grid-template-columns:1fr;padding:0 24px 48px;gap:24px}
+  .hero-right-col{align-items:flex-start;max-width:100%}
+  .hero-right-col p{text-align:left}
 }
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.18) 0%,transparent 40%)}
-.hero-photo-label{position:absolute;bottom:20px;right:24px;z-index:2;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
@@ -264,17 +285,20 @@ footer{
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-header">
-    <div class="hero-left rev rev-up">
+  <div class="hero-bg">
+    <img src="hero.jpg" alt="LIBERO realizace">
+  </div>
+  <div class="hero-content rev rev-up">
+    <div>
       <div class="eyebrow">Stavební firma · Brno</div>
       <h1>Stavíme<br>základy<br>vašich snů.</h1>
     </div>
-    <div class="hero-right rev rev-up d2">
-      <p>Novostavby, rekonstrukce, průmyslové objekty. Pracujeme poctivě, s důrazem na detail a pevný termín. Každý projekt bereme vážně – od první schůzky po předání klíčů.</p>
-      <a href="#kontakt" class="btn-link">Nezávazná poptávka →</a>
+    <div class="hero-right-col">
+      <p>Novostavby, rekonstrukce, průmyslové objekty. S důrazem na detail a pevný termín.</p>
+      <a href="#kontakt" class="btn-white">Nezávazná poptávka →</a>
+      <div class="hero-scroll-hint">Posunout dolů</div>
     </div>
   </div>
-  <img src="hero.jpg" class="rev rev-scale d1" style="width:100%;display:block;aspect-ratio:16/7;object-fit:cover;min-height:300px">
 </section>
 
 <!-- STATS -->
