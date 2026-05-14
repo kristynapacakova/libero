@@ -12,6 +12,7 @@
 
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
 
 :root{
   --serif:"Serenity",Georgia,serif;
@@ -259,6 +260,31 @@ footer{
   .srv-grid{grid-template-columns:1fr}
   .fg-row{grid-template-columns:1fr}
 }
+
+/* ── KONTAKT s mapou ── */
+.kontakt{display:grid;grid-template-columns:1fr 1fr}
+.kon-map{position:relative;min-height:600px;overflow:hidden}
+.kon-map iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;filter:grayscale(25%) contrast(1.05)}
+/* kontaktní údaje nad mapou */
+.kon-info-bar{
+  background:var(--text);
+  padding:28px 40px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  border-bottom:none;
+}
+.kon-info-bar .cd{display:flex;flex-direction:column;gap:4px}
+.kon-info-bar .kd-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:3px}
+.kon-info-bar .kd-v{font-size:15px;color:#fff;font-weight:300}
+.kon-form{padding:80px 56px;background:var(--bg);border-left:1px solid var(--line)}
+.form-hd{margin-bottom:44px}
+
+@media(max-width:920px){
+  .kontakt{grid-template-columns:1fr}
+  .kon-map{min-height:300px}
+  .kon-info-bar{grid-template-columns:1fr;padding:24px}
+  .kon-form{padding:52px 24px;border-left:none;border-top:1px solid var(--line)}
+}
 </style>
 </head>
 <body>
@@ -385,17 +411,36 @@ footer{
 
 <!-- KONTAKT -->
 <section class="kontakt" id="kontakt">
-  <div class="kon-photo rev rev-left">
-    <!-- Nahraďte za: <img src="kontakt.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"> -->
-    <div class="kon-ov">
-      <div class="kon-detail">
-        <div><div class="kd-l">E-mail</div><div class="kd-v">info@liberostavby.cz</div></div>
-        <div><div class="kd-l">Telefon</div><div class="kd-v">+420 737 000 000</div></div>
-        <div><div class="kd-l">Sídlo</div><div class="kd-v">Brno, Jihomoravský kraj</div></div>
-        <div><div class="kd-l">IČO</div><div class="kd-v">00 000 000</div></div>
+  <!-- LEVÁ STRANA: mapa + kontaktní údaje -->
+  <div style="display:flex;flex-direction:column">
+    <!-- Kontaktní údaje – tmavá lišta nad mapou -->
+    <div class="kon-info-bar">
+      <div class="cd">
+        <div class="kd-l">E-mail</div>
+        <div class="kd-v">info@liberostavby.cz</div>
+      </div>
+      <div class="cd">
+        <div class="kd-l">Telefon</div>
+        <div class="kd-v">+420 737 000 000</div>
+      </div>
+      <div class="cd">
+        <div class="kd-l">Sídlo</div>
+        <div class="kd-v">Brno, JMK</div>
       </div>
     </div>
+    <!-- Mapa Brna -->
+    <div class="kon-map rev rev-left" style="flex:1">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d82760.5!2d16.5082!3d49.1951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4712943ac03f5111%3A0x400af0f6614b1b0!2sBrno!5e0!3m2!1scs!2scz!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="LIBERO – Brno">
+      </iframe>
+    </div>
   </div>
+
+  <!-- PRAVÁ STRANA: formulář -->
   <div class="kon-form rev rev-right">
     <div class="form-hd">
       <div class="sec-label">Pojďme stavět</div>
