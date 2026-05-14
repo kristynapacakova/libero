@@ -403,88 +403,39 @@ footer{
       <h2 class="sec-h">Stavíme s přesností<br>architekta a citem pro detail.</h2>
       <p class="filozofie-body">Jsme stavební firma z Brna s více než patnácti lety zkušeností. Specializujeme se na novostavby rodinných domů, komplexní rekonstrukce a průmyslové stavby. Ke každému projektu přistupujeme individuálně – od první schůzky po předání klíčů.</p>
       <p class="filozofie-body" style="margin-top:20px">Věříme, že kvalitní stavba začíná u precizního plánu a končí v detailech, které dělají domov domovem. Každý projekt je pro nás závazkem k poctivému řemeslu.</p>
-      <a href="#kontakt" class="btn-link" style="margin-top:36px">Kontaktujte nás →</a>
     </div>
 
     <!-- PŮDORYS SVG -->
     <div class="pudorys-wrap">
       <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"
-           stroke="#1C1A18" stroke-linecap="round" stroke-linejoin="round">
+         stroke="#1C1A18" stroke-linecap="round" stroke-linejoin="round">
 
-        <!-- Vnější obrys domu -->
-        <rect x="20" y="20" width="360" height="280" stroke-width="2.5"/>
+  <!-- Vnější obrys -->
+  <rect x="20" y="20" width="360" height="280" stroke-width="2"/>
 
-        <!-- Příčky -->
-        <!-- Svislá příčka – odděluje obývák od chodby -->
-        <line x1="160" y1="20" x2="160" y2="200" stroke-width="1.5"/>
-        <!-- Svislá příčka – odděluje ložnice -->
-        <line x1="160" y1="130" x2="380" y2="130" stroke-width="1.5"/>
-        <!-- Vodorovná příčka – koupelna/WC -->
-        <line x1="260" y1="130" x2="260" y2="300" stroke-width="1.5"/>
-        <!-- Chodba -->
-        <line x1="160" y1="200" x2="380" y2="200" stroke-width="1.5"/>
+  <!-- Příčky -->
+  <line x1="160" y1="20" x2="160" y2="200" stroke-width="1.2"/>
+  <line x1="160" y1="130" x2="380" y2="130" stroke-width="1.2"/>
+  <line x1="260" y1="130" x2="260" y2="300" stroke-width="1.2"/>
+  <line x1="160" y1="200" x2="380" y2="200" stroke-width="1.2"/>
 
-        <!-- Dveře – obloukové -->
-        <!-- Vchod (dole vlevo) -->
-        <line x1="70" y1="300" x2="110" y2="300" stroke-width="2.5"/>
-        <path d="M70 300 A40 40 0 0 1 110 260" stroke-width="1" stroke-dasharray="none"/>
+  <!-- Okna – přerušení v obrysu -->
+  <line x1="20" y1="65" x2="20" y2="145" stroke-width="3.5"/>
+  <line x1="20" y1="73" x2="20" y2="137" stroke="white" stroke-width="2"/>
+  <line x1="50" y1="300" x2="130" y2="300" stroke-width="3.5"/>
+  <line x1="58" y1="300" x2="122" y2="300" stroke="white" stroke-width="2"/>
+  <line x1="170" y1="20" x2="245" y2="20" stroke-width="3.5"/>
+  <line x1="178" y1="20" x2="237" y2="20" stroke="white" stroke-width="2"/>
+  <line x1="270" y1="20" x2="360" y2="20" stroke-width="3.5"/>
+  <line x1="278" y1="20" x2="352" y2="20" stroke="white" stroke-width="2"/>
 
-        <!-- Dveře obývák -->
-        <line x1="160" y1="80" x2="160" y2="110" stroke-width="2.5" stroke="white"/>
-        <line x1="160" y1="80" x2="160" y2="110" stroke-width="1.5"/>
-        <path d="M160 110 A30 30 0 0 0 190 80" stroke-width="1"/>
-
-        <!-- Dveře ložnice 1 -->
-        <line x1="210" y1="130" x2="240" y2="130" stroke-width="2.5" stroke="white"/>
-        <line x1="210" y1="130" x2="240" y2="130" stroke-width="1.5"/>
-        <path d="M240 130 A30 30 0 0 0 210 160" stroke-width="1"/>
-
-        <!-- Dveře ložnice 2 -->
-        <line x1="290" y1="130" x2="320" y2="130" stroke-width="2.5" stroke="white"/>
-        <line x1="290" y1="130" x2="320" y2="130" stroke-width="1.5"/>
-        <path d="M290 130 A30 30 0 0 1 320 160" stroke-width="1"/>
-
-        <!-- Okna – silnější čáry na vnějším zdi -->
-        <!-- Obývák – okno vlevo -->
-        <line x1="20" y1="70" x2="20" y2="140" stroke-width="4"/>
-        <line x1="20" y1="78" x2="20" y2="132" stroke="white" stroke-width="2"/>
-        <line x1="20" y1="105" x2="20" y2="105" stroke-width="4"/>
-
-        <!-- Obývák – okno dole -->
-        <line x1="40" y1="300" x2="130" y2="300" stroke-width="4"/>
-        <line x1="48" y1="300" x2="122" y2="300" stroke="white" stroke-width="2"/>
-
-        <!-- Ložnice 1 – okno nahoře -->
-        <line x1="170" y1="20" x2="250" y2="20" stroke-width="4"/>
-        <line x1="178" y1="20" x2="242" y2="20" stroke="white" stroke-width="2"/>
-
-        <!-- Ložnice 2 – okno nahoře -->
-        <line x1="270" y1="20" x2="360" y2="20" stroke-width="4"/>
-        <line x1="278" y1="20" x2="352" y2="20" stroke="white" stroke-width="2"/>
-
-        <!-- Koupelna – sanitka symbolicky -->
-        <rect x="268" y="140" width="28" height="48" rx="12" stroke-width="1"/>
-        <ellipse cx="282" cy="258" rx="20" ry="14" stroke-width="1"/>
-
-        <!-- Popisky místností -->
-        <text x="80" y="150" font-family="'Jost', sans-serif" font-size="9"
-              fill="#1C1A18" opacity=".5" text-anchor="middle" letter-spacing="1">OBÝVACÍ POKOJ</text>
-        <text x="205" y="80" font-family="'Jost', sans-serif" font-size="9"
-              fill="#1C1A18" opacity=".5" text-anchor="middle" letter-spacing="1">LOŽNICE</text>
-        <text x="320" y="80" font-family="'Jost', sans-serif" font-size="9"
-              fill="#1C1A18" opacity=".5" text-anchor="middle" letter-spacing="1">LOŽNICE</text>
-        <text x="210" y="260" font-family="'Jost', sans-serif" font-size="9"
-              fill="#1C1A18" opacity=".5" text-anchor="middle" letter-spacing="1">CHODBA</text>
-        <text x="320" y="260" font-family="'Jost', sans-serif" font-size="9"
-              fill="#1C1A18" opacity=".5" text-anchor="middle" letter-spacing="1">KOUPELNA</text>
-
-        <!-- Kóta nahoře -->
-        <line x1="20" y1="8" x2="380" y2="8" stroke-width=".75" stroke-dasharray="4 3" opacity=".3"/>
-        <line x1="20" y1="5" x2="20" y2="11" stroke-width=".75" opacity=".3"/>
-        <line x1="380" y1="5" x2="380" y2="11" stroke-width=".75" opacity=".3"/>
-        <text x="200" y="6" font-family="'Jost', sans-serif" font-size="7.5"
-              fill="#1C1A18" opacity=".3" text-anchor="middle">12 500</text>
-      </svg>
+  <!-- Kóta -->
+  <line x1="20" y1="7" x2="380" y2="7" stroke-width=".6" stroke-dasharray="4 3" opacity=".25"/>
+  <line x1="20" y1="4" x2="20" y2="10" stroke-width=".6" opacity=".25"/>
+  <line x1="380" y1="4" x2="380" y2="10" stroke-width=".6" opacity=".25"/>
+  <text x="200" y="5.5" font-family="'Jost',sans-serif" font-size="7"
+        fill="#1C1A18" opacity=".25" text-anchor="middle" letter-spacing=".5">12 500</text>
+</svg>
     </div>
   </div>
 </section>
