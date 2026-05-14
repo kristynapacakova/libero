@@ -155,7 +155,7 @@ nav{
 
 /* ── SLUZBY ── */
 .sluzby{padding:88px 52px;background:var(--white);border-bottom:1px solid var(--line)}
-.srv-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
+.srv-intro{margin-bottom:56px}
 .srv-desc{font-size:15px;line-height:1.85;color:var(--mid)}
 .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .scard{background:var(--white);padding:48px 36px;transition:background .25s;position:relative}
@@ -430,7 +430,7 @@ footer{
       <div class="sec-label">Co stavíme</div>
       <h2 class="sec-h" style="margin-top:10px">Naše služby</h2>
     </div>
-    <p class="srv-desc">Ke každému projektu přistupujeme individuálně. Jasná kalkulace, pevný termín, žádná překvapení na konci.</p>
+    <p class="srv-desc" style="margin-top:16px;max-width:540px">Ke každému projektu přistupujeme individuálně. Jasná kalkulace, pevný termín, žádná překvapení na konci.</p>
   </div>
   <div class="srv-grid">
     <div class="scard rev rev-up d1"><span class="scard-n">01</span><div class="scard-title">Novostavby</div><div class="scard-desc">Rodinné domy, bytové domy i komerční objekty. Od základů po střechu.</div></div>
@@ -443,59 +443,55 @@ footer{
 </section>
 
 <!-- KONTAKT -->
-<section class="kontakt" id="kontakt">
-  <!-- LEVÁ STRANA: mapa + kontaktní údaje -->
-  <div style="display:flex;flex-direction:column">
-    <!-- Kontaktní údaje – tmavá lišta nad mapou -->
-    <div class="kon-info-bar">
-      <div class="cd">
-        <div class="kd-l">E-mail</div>
-        <div class="kd-v">info@liberostavby.cz</div>
-      </div>
-      <div class="cd">
-        <div class="kd-l">Telefon</div>
-        <div class="kd-v">+420 737 000 000</div>
-      </div>
-      <div class="cd">
-        <div class="kd-l">Sídlo</div>
-        <div class="kd-v">Brno, JMK</div>
-      </div>
-    </div>
-    <!-- Mapa Brna -->
-    <div class="kon-map rev rev-left" style="flex:1">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d82760.5!2d16.5082!3d49.1951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4712943ac03f5111%3A0x400af0f6614b1b0!2sBrno!5e0!3m2!1scs!2scz!4v1"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="LIBERO – Brno">
-      </iframe>
-    </div>
-  </div>
+<section id="kontakt" style="background:var(--bg);border-top:1px solid var(--line);padding:100px 52px">
+  <div style="max-width:860px;margin:0 auto">
 
-  <!-- PRAVÁ STRANA: formulář -->
-  <div class="kon-form rev rev-right">
-    <div class="form-hd">
+    <!-- Nadpis -->
+    <div class="rev rev-up" style="margin-bottom:56px">
       <div class="sec-label">Pojďme stavět</div>
-      <h2 class="sec-h" style="margin-top:10px">Kontaktujte<br>nás</h2>
+      <h2 class="sec-h" style="margin-top:10px">Kontaktujte nás</h2>
     </div>
-    <div class="fg-row">
-      <div class="fg"><label>Jméno</label><input type="text" placeholder="Jan Novák" id="fn"></div>
-      <div class="fg"><label>Telefon</label><input type="tel" placeholder="+420 777 000 000"></div>
+
+    <!-- Formulář -->
+    <div class="rev rev-up">
+      <div class="fg-row">
+        <div class="fg"><label>Jméno</label><input type="text" placeholder="Jan Novák" id="fn"></div>
+        <div class="fg"><label>Telefon</label><input type="tel" placeholder="+420 777 000 000"></div>
+      </div>
+      <div class="fg"><label>E-mail</label><input type="email" placeholder="jan@novak.cz" id="fe"></div>
+      <div class="fg">
+        <label>Typ zakázky</label>
+        <select>
+          <option value="">— vyberte —</option>
+          <option>Novostavba</option>
+          <option>Rekonstrukce</option>
+          <option>Průmyslová stavba</option>
+          <option>Zateplení fasády</option>
+          <option>Přístavba / nadstavba</option>
+          <option>Projekce a poradenství</option>
+          <option>Jiné</option>
+        </select>
+      </div>
+      <div class="fg"><label>Popis projektu</label><textarea placeholder="Stručně popište, co plánujete…"></textarea></div>
+      <button class="fsub" id="fsub">Odeslat poptávku →</button>
     </div>
-    <div class="fg"><label>E-mail</label><input type="email" placeholder="jan@novak.cz" id="fe"></div>
-    <div class="fg">
-      <label>Typ zakázky</label>
-      <select>
-        <option value="">— vyberte —</option>
-        <option>Novostavba</option><option>Rekonstrukce</option>
-        <option>Průmyslová stavba</option><option>Zateplení fasády</option>
-        <option>Přístavba / nadstavba</option><option>Projekce a poradenství</option>
-        <option>Jiné</option>
-      </select>
+
+    <!-- Kontaktní údaje pod formulářem -->
+    <div class="rev rev-up" style="margin-top:64px;padding-top:48px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <div>
+        <div class="sec-label" style="margin-bottom:8px">E-mail</div>
+        <div style="font-size:16px;color:var(--text);font-weight:300">info@liberostavby.cz</div>
+      </div>
+      <div>
+        <div class="sec-label" style="margin-bottom:8px">Telefon</div>
+        <div style="font-size:16px;color:var(--text);font-weight:300">+420 737 000 000</div>
+      </div>
+      <div>
+        <div class="sec-label" style="margin-bottom:8px">Sídlo</div>
+        <div style="font-size:16px;color:var(--text);font-weight:300">Brno, Jihomoravský kraj</div>
+      </div>
     </div>
-    <div class="fg"><label>Popis projektu</label><textarea placeholder="Stručně popište, co plánujete…"></textarea></div>
-    <button class="fsub" id="fsub">Odeslat poptávku →</button>
+
   </div>
 </section>
 
