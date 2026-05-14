@@ -168,7 +168,7 @@ nav{
 .scard-desc{font-size:13px;color:var(--mid);line-height:1.7}
 
 /* ── KONTAKT ── */
-.kontakt{display:grid;grid-template-columns:1fr 1fr}
+.kontakt{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
 .kon-photo{min-height:580px;background:linear-gradient(155deg,#bab0a0 0%,#9a9080 50%,#807060 100%);position:relative;overflow:hidden}
 .kon-ov{position:absolute;inset:0;background:rgba(12,9,6,.36);display:flex;flex-direction:column;justify-content:flex-end;padding:52px}
 .kon-detail{display:flex;flex-direction:column;gap:24px}
@@ -262,9 +262,9 @@ footer{
 }
 
 /* ── KONTAKT s mapou ── */
-.kontakt{display:grid;grid-template-columns:1fr 1fr}
-.kon-map{position:relative;min-height:600px;overflow:hidden}
-.kon-map iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;filter:grayscale(25%) contrast(1.05)}
+.kontakt{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.kon-map{position:relative;flex:1;min-height:400px;overflow:hidden}
+.kon-map iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;filter:grayscale(100%) contrast(1.08) brightness(1.05)}
 /* kontaktní údaje nad mapou */
 .kon-info-bar{
   background:var(--text);
@@ -274,15 +274,15 @@ footer{
   border-bottom:none;
 }
 .kon-info-bar .cd{display:flex;flex-direction:column;gap:4px}
-.kon-info-bar .kd-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:3px}
+.kon-info-bar .kd-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:3px}
 .kon-info-bar .kd-v{font-size:15px;color:#fff;font-weight:300}
 .kon-form{padding:80px 56px;background:var(--bg);border-left:1px solid var(--line)}
 .form-hd{margin-bottom:44px}
 
 @media(max-width:920px){
-  .kontakt{grid-template-columns:1fr}
-  .kon-map{min-height:300px}
-  .kon-info-bar{grid-template-columns:1fr;padding:24px}
+  .kontakt{grid-template-columns:1fr;min-height:auto}
+  .kon-map{min-height:320px;flex:none}
+  .kon-info-bar{grid-template-columns:1fr 1fr;padding:20px 24px;gap:12px}
   .kon-form{padding:52px 24px;border-left:none;border-top:1px solid var(--line)}
 }
 </style>
@@ -381,11 +381,6 @@ footer{
       <p class="about-body">Jsme stavební firma z Brna s více než patnácti lety zkušeností. Specializujeme se na novostavby rodinných domů, komplexní rekonstrukce a průmyslové stavby. Ke každému projektu přistupujeme individuálně – od první schůzky po předání klíčů.</p>
       <a href="#kontakt" class="btn-link" style="margin-top:36px">Kontaktujte nás →</a>
     </div>
-    <div class="about-nums">
-      <div><div class="an-n">15+</div><div class="an-l">Let zkušeností</div></div>
-      <div><div class="an-n">200+</div><div class="an-l">Staveb</div></div>
-      <div><div class="an-n">30</div><div class="an-l">Pracovníků</div></div>
-      <div><div class="an-n">100%</div><div class="an-l">Včas</div></div>
     </div>
   </div>
 </section>
@@ -493,6 +488,45 @@ const obs = new IntersectionObserver((entries) => {
 document.querySelectorAll(".rev").forEach(el => obs.observe(el));
 
 // Formulář
+
+// ── Counter animace ──
+(function(){
+  const counters = document.querySelectorAll('.stat-n');
+  if(!counters.length) return;
+
+  const parse = el => {
+    const txt = el.textContent.trim();
+    const num = parseFloat(txt.replace(/[^0-9.]/g,''));
+    const suffix = txt.replace(/[0-9.]/g,'').trim();
+    return {num, suffix};
+  };
+
+  const animate = (el, target, suffix, duration) => {
+    const start = performance.now();
+    const isFloat = target % 1 !== 0;
+    const step = ts => {
+      const p = Math.min((ts - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      const val = isFloat ? (target * ease).toFixed(1) : Math.floor(target * ease);
+      el.textContent = val + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const {num, suffix} = parse(el);
+      animate(el, num, suffix, 1800);
+      obs.unobserve(el);
+    });
+  }, {threshold: 0.5});
+
+  counters.forEach(el => obs.observe(el));
+})();
+
 document.getElementById("fsub").addEventListener("click", function() {
   const n = document.getElementById("fn").value.trim();
   const e = document.getElementById("fe").value.trim();
