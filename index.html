@@ -285,6 +285,46 @@ footer{
   .kon-info-bar{grid-template-columns:1fr 1fr;padding:20px 24px;gap:12px}
   .kon-form{padding:52px 24px;border-left:none;border-top:1px solid var(--line)}
 }
+
+/* ── FILOZOFIE ── */
+.filozofie{
+  padding:110px 52px;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.filozofie-inner{max-width:760px}
+.filozofie .sec-label{margin-bottom:20px}
+.filozofie .sec-h{
+  font-size:clamp(28px,3vw,44px);
+  margin-bottom:32px;
+  line-height:1.15;
+  color:var(--text);
+}
+.filozofie-body{
+  font-size:16px;line-height:1.95;
+  color:var(--mid);font-weight:300;
+}
+
+/* ── ANIMOVANÝ ODKAZ (realizace) ── */
+.btn-link-animated{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  position:relative;padding-bottom:3px;
+}
+.btn-link-animated::after{
+  content:"";
+  position:absolute;bottom:0;left:0;
+  height:1px;background:var(--text);
+  width:0;transition:width .35s ease;
+}
+.btn-link-animated:hover{color:var(--text)}
+.btn-link-animated:hover::after{width:100%}
+
+@media(max-width:920px){
+  .filozofie{padding:72px 24px}
+}
 </style>
 </head>
 <body>
@@ -335,6 +375,16 @@ footer{
   <div class="stat rev rev-up d4"><div class="stat-n">100%</div><div class="stat-l">Zakázek předáno včas</div></div>
 </div>
 
+
+<!-- FILOZOFIE -->
+<section class="filozofie rev rev-up">
+  <div class="filozofie-inner">
+    <div class="sec-label">O našem přístupu</div>
+    <h2 class="sec-h">Stavíme s přesností<br>architekta a citem pro detail.</h2>
+    <p class="filozofie-body">V LIBERO věříme, že kvalitní stavba začíná u precizního plánu a končí v detailech, které dělají domov domovem. Specializujeme se na moderní architekturu, kde se čistý design potkává s nekompromisní funkčností. Každý projekt je pro nás závazkem k poctivému řemeslu.</p>
+  </div>
+</section>
+
 <!-- REALIZACE -->
 <section class="realizace" id="realizace">
   <div class="sec-head rev rev-up">
@@ -342,7 +392,7 @@ footer{
       <div class="sec-label">Naše práce</div>
       <h2 class="sec-h">Vybrané realizace</h2>
     </div>
-    <a href="#kontakt" class="btn-link">Chci podobný projekt →</a>
+    <a href="#kontakt" class="btn-link-animated">Chci podobný projekt →</a>
   </div>
   <!-- Nahraďte .rcard-img.riX za <img class="rcard-img" src="foto.jpg" style="object-fit:cover;width:100%;height:100%;position:absolute;inset:0"> -->
   <div class="r-grid">
